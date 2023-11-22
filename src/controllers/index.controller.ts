@@ -1,18 +1,17 @@
-import express, { Request, Response } from 'express';
-import IndexService from '../services/index.service'
+import {Request, Response } from 'express';
+import {PingService} from '../services/index.service'
 
- const getPing = async(req:Request,res:Response)=>{
+export class PingController{
+
+  constructor(){
+
+  }
+public static getPing = async(req:Request,res:Response)=>{
 try{
-   await IndexService.getPingService(req,res).then((result)=>{
-    res.send(result)
-  }).catch(()=>{
-    res.sendStatus(404)
-  })
- 
+  await PingService.getPingService(req).then((result)=>{
+ res.send(result)
+   })
 }catch{
   res.sendStatus(500)
 }}
-
-export default {
-  getPing
 }

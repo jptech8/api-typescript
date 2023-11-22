@@ -1,6 +1,9 @@
-
-const getPingService = async (req: any, res: any) => {
-    return new Promise<object>((resolve, reject) => {
+export class PingService {
+  constructor(){
+    
+  }
+  public static getPingService=async(req:object) => {
+    return new Promise((resolve, reject) => {
       try {
         let result: String = "ping";
         resolve({ result });
@@ -8,9 +11,6 @@ const getPingService = async (req: any, res: any) => {
         reject({ mesage: "Server Error" });
       }
     });
-  };
-  
-  export default {
-    getPingService,
-  };
+  }
+}
   

@@ -1,16 +1,17 @@
-
-const getBattery = async (req: any, res: any) => {
-    return new Promise<object>((resolve, reject) => {
+export class BatteryService {
+  constructor(){
+    
+  }
+  public static getBattery=async(req:object) => {
+    return new Promise((resolve, reject) => {
       try {
-        let result: String = "about page from service";
+        let result: String = "battery";
         resolve({ result });
       } catch {
         reject({ mesage: "Server Error" });
       }
     });
-  };
+  }
+}
   
-  export default {
-    getBattery,
-  };
   
