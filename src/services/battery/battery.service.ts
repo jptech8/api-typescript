@@ -1,8 +1,8 @@
 
-const getPingService = async (req: any, res: any) => {
+const getBattery = async (req: any, res: any) => {
     return new Promise<object>((resolve, reject) => {
       try {
-        let result: String = "ping";
+        let result: String = "about page from service";
         resolve({ result });
       } catch {
         reject({ mesage: "Server Error" });
@@ -11,6 +11,6 @@ const getPingService = async (req: any, res: any) => {
   };
   
   export default {
-    getPingService,
+    getBattery,
   };
   

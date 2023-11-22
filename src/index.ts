@@ -1,14 +1,9 @@
 import express, { Request, Response } from 'express';
-import router from './routes/routes.index';
+import IndexRouter from './routes/index.routes';
+import BatteryRouter from './routes/battery/battery.routes';
 const app = express();
-const port = process.env.PORT || 3000;
+
+app.use('/',IndexRouter, BatteryRouter);
 
 
-app.use('/', router);
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello, TypeScript Express!');
-  });
-
-  app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-  });
+export default app

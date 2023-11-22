@@ -1,8 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
-import { getAbout } from '../controller/index.controller';
+import IndexController from '../controllers/index.controller';
 const app = express();
 const router = express.Router()
 
-
- router.get('/about',getAbout)
+router.get('/ping',IndexController.getPing)
 export default router
