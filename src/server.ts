@@ -1,6 +1,5 @@
-import app from './index'
-const port = process.env.PORT || 3000;
+import {App} from './index'
+const port: number = parseInt(process.env.PORT as string, 4) || 3000;
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-  });
+const app = new App();
+app.start(port);

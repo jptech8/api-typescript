@@ -6,12 +6,13 @@ export class BatteryController{
   constructor(){
 
   }
-public static getBattery = async(req:Request,res:Response)=>{
-try{
-  await BatteryService.getBattery(req).then((result)=>{
- res.send(result)
-   })
-}catch{
-  res.sendStatus(500)
-}}
+
+public static getBattery = async (req: Request, res: Response) => {
+  try {
+    const result = await BatteryService.getBattery(req);
+    res.send(result);
+  } catch (error) {
+    res.sendStatus(500);
+  }
+}
 }

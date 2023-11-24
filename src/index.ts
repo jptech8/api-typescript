@@ -25,6 +25,9 @@ export class App {
   private routes=async()=>{ 
     this.express.use("/", IndexRouter, BatteryRouter);
   }
+  public start(port: number): void {
+    this.express.listen(port, () => {
+      console.log(`Server is running on http://localhost:${port}`);
+    });
+  }
 }
-
-export default new App().express;
