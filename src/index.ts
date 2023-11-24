@@ -14,8 +14,10 @@ export class App {
   }
   private  datababase =async()=>{
     await AppDataSource.initialize()
-      .then(async () => console.log(AppDataSource.options.database + " database connected"))
-      .catch((error) => console.log(error.message));
+      .then(async () => {
+       
+        console.log(AppDataSource.options.database + " database connected")})
+      .catch((error) => console.log(error));
   }
   private middlewares=async()=>{
     this.express.use(express.json());
