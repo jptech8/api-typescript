@@ -1,18 +1,6 @@
-import { AppDataSource } from "../../config/database/database.config";
-import { BatteryEntity } from '../../model/battery/battery.entity'
-
-
-
-
-interface BatteryInterface{
-  dealerName : string;
-  batteryType :string;
-  batterySerialNumber:number;
-  status:string;
-  createdDateTime:string;
-  updatedDateTime:string;
-}
-
+import { AppDataSource } from '../../config/database/database.config';
+import { BatteryEntity } from '../../model/battery/entity/battery.entity'
+import {BatteryInterface}from '../../model/battery/interface/battery.interface'
 export class BatteryService {
   constructor(){
     

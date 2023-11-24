@@ -1,4 +1,4 @@
-import { BatteryEntity } from "../../model/battery/battery.entity";
+import { BatteryEntity } from "../../model/battery/entity/battery.entity";
 import "reflect-metadata"
 import { DataSource } from "typeorm"
 
