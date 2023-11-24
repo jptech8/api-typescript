@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-import { PingService } from "../services/index.service";
+import { Request, Response } from 'express';
+import { PingService } from '../services/index.service';
 
 export class PingController {
   constructor() {}

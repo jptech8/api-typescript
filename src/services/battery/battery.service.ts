@@ -1,6 +1,6 @@
-import { AppDataSource } from "../../config/database/database.config";
-import { BatteryEntity } from "../../model/battery/entity/battery.entity";
-import { BatteryInterface } from "../../model/battery/interface/battery.interface";
+import { AppDataSource } from '../../config/database/database.config';
+import { BatteryEntity } from '../../model/battery/entity/battery.entity';
+import { BatteryInterface } from '../../model/battery/interface/battery.interface';
 export class BatteryService {
   constructor() {}
 
@@ -17,14 +17,7 @@ export class BatteryService {
   public static postBattery = async (data: BatteryInterface) => {
     return new Promise<Object>(async (resolve, reject) => {
       try {
-        let {
-          dealerName,
-          batteryType,
-          batterySerialNumber,
-          status,
-          createdDateTime,
-          updatedDateTime,
-        } = data;
+        let { dealerName, batteryType, batterySerialNumber, status, createdDateTime, updatedDateTime } = data;
         const postRepository = AppDataSource.getRepository(BatteryEntity);
         const newPost = postRepository.create({
           dealerName,
@@ -44,19 +37,10 @@ export class BatteryService {
   public static putBattery = async (uid: number, body: BatteryInterface) => {
     return new Promise<Object>(async (resolve, reject) => {
       try {
-        let {
-          dealerName,
-          batteryType,
-          batterySerialNumber,
-          status,
-          createdDateTime,
-          updatedDateTime,
-        } = body;
-        const uidFound = await AppDataSource.getRepository(
-          BatteryEntity
-        ).findOneBy({ uid: uid });
+        let { dealerName, batteryType, batterySerialNumber, status, createdDateTime, updatedDateTime } = body;
+        const uidFound = await AppDataSource.getRepository(BatteryEntity).findOneBy({ uid: uid });
         if (!uidFound) {
-          resolve({ message: "No record found" });
+          resolve({ message: 'No record found' });
         }
 
         let data = {
@@ -67,12 +51,9 @@ export class BatteryService {
           createdDateTime,
           updatedDateTime,
         };
-        const results = await AppDataSource.getRepository(BatteryEntity).update(
-          uid,
-          data
-        );
+        const results = await AppDataSource.getRepository(BatteryEntity).update(uid, data);
         resolve({
-          message: "Updated successfully",
+          message: 'Updated successfully',
           affectedRows: results.affected,
         });
       } catch (error: any) {
@@ -83,11 +64,9 @@ export class BatteryService {
   public static deleteBattery = async (uid: number) => {
     return new Promise<Object>(async (resolve, reject) => {
       try {
-        const results = await AppDataSource.getRepository(BatteryEntity).delete(
-          uid
-        );
+        const results = await AppDataSource.getRepository(BatteryEntity).delete(uid);
         resolve({
-          message: "Deleted successfully",
+          message: 'Deleted successfully',
           affectedRows: results.affected,
         });
       } catch (error: any) {

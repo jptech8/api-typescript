@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-import { BatteryService } from "../../services/battery/battery.service";
+import { Request, Response } from 'express';
+import { BatteryService } from '../../services/battery/battery.service';
 
 export class BatteryController {
   constructor() {}
