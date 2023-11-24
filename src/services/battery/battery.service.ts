@@ -5,19 +5,19 @@ export class BatteryService {
   constructor() {}
 
   public static getBattery = async () => {
-    return new Promise<Object>(async (resolve, reject) => {
+    return new Promise<unknown>(async (resolve, reject) => {
       try {
         const results = await AppDataSource.getRepository(BatteryEntity).find();
         resolve(results);
-      } catch (error: any) {
-        reject({ message: error.message });
+      } catch (error) {
+        reject({ message: error });
       }
     });
   };
   public static postBattery = async (data: BatteryInterface) => {
-    return new Promise<Object>(async (resolve, reject) => {
+    return new Promise<unknown>(async (resolve, reject) => {
       try {
-        let { dealerName, batteryType, batterySerialNumber, status, createdDateTime, updatedDateTime } = data;
+        const { dealerName, batteryType, batterySerialNumber, status, createdDateTime, updatedDateTime } = data;
         const postRepository = AppDataSource.getRepository(BatteryEntity);
         const newPost = postRepository.create({
           dealerName,
@@ -27,23 +27,23 @@ export class BatteryService {
           createdDateTime,
           updatedDateTime,
         });
-        let results = await postRepository.save(newPost);
+        const results = await postRepository.save(newPost);
         resolve(results);
-      } catch (error: any) {
-        reject({ message: error.message });
+      } catch (error) {
+        reject({ message: error });
       }
     });
   };
   public static putBattery = async (uid: number, body: BatteryInterface) => {
-    return new Promise<Object>(async (resolve, reject) => {
+    return new Promise<unknown>(async (resolve, reject) => {
       try {
-        let { dealerName, batteryType, batterySerialNumber, status, createdDateTime, updatedDateTime } = body;
+        const { dealerName, batteryType, batterySerialNumber, status, createdDateTime, updatedDateTime } = body;
         const uidFound = await AppDataSource.getRepository(BatteryEntity).findOneBy({ uid: uid });
         if (!uidFound) {
           resolve({ message: 'No record found' });
         }
 
-        let data = {
+        const data = {
           dealerName,
           batteryType,
           batterySerialNumber,
@@ -56,21 +56,21 @@ export class BatteryService {
           message: 'Updated successfully',
           affectedRows: results.affected,
         });
-      } catch (error: any) {
-        reject({ message: error.message });
+      } catch (error) {
+        reject({ message: error });
       }
     });
   };
   public static deleteBattery = async (uid: number) => {
-    return new Promise<Object>(async (resolve, reject) => {
+    return new Promise<unknown>(async (resolve, reject) => {
       try {
         const results = await AppDataSource.getRepository(BatteryEntity).delete(uid);
         resolve({
           message: 'Deleted successfully',
           affectedRows: results.affected,
         });
-      } catch (error: any) {
-        reject({ message: error.message });
+      } catch (error) {
+        reject({ message: error });
       }
     });
   };

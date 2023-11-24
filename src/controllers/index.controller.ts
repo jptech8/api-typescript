@@ -5,7 +5,7 @@ export class PingController {
   constructor() {}
   public static getPing = async (req: Request, res: Response) => {
     try {
-      const result = await PingService.getPingService(req);
+      const result = await PingService.getPingService();
       res.send(result);
     } catch (error) {
       res.sendStatus(500);

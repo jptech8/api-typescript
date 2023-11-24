@@ -1,9 +1,9 @@
 export class PingService {
   constructor() {}
-  public static getPingService = async (req: Object) => {
-    return new Promise<Object>((resolve, reject) => {
+  public static getPingService = async () => {
+    return new Promise<unknown>((resolve, reject) => {
       try {
-        const result: Object = {
+        const result: unknown = {
           key1: 'value1',
           key2: 42,
         };
