@@ -2,17 +2,17 @@ import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
 @Entity()
 export class BatteryEntity {
     @PrimaryGeneratedColumn()
-    UID: number;
+    uid: number;
     @Column()
-    DEALER_NAME: string;
+    dealerName: string;
     @Column()
-    BATTERY_TYPE: string;
+    batteryType: string;
     @Column()
-    BATTERY_SERIAL_NAME: number;
+    batterySerialNumber: number;
     @Column()
-    STATUS: string;
+    status: string;
     @Column()
-    CREATED_DT: string;
+    createdDateTime: string;
     @Column()
-    UPDATED_DT: string;
+    updatedDateTime: string;
 }

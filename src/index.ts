@@ -2,6 +2,7 @@ import express from "express";
 import IndexRouter from "./routes/index.routes";
 import BatteryRouter from "./routes/battery/battery.routes";
 import { AppDataSource } from "./config/database/database.config";
+import bodyParser from 'body-parser';
 
 export class App {
   public express: express.Application;
@@ -21,6 +22,7 @@ export class App {
   }
   private middlewares=async()=>{
     this.express.use(express.json());
+    this.express.use(bodyParser.urlencoded({ extended: true }));
   }
   private routes=async()=>{ 
     this.express.use("/", IndexRouter, BatteryRouter);

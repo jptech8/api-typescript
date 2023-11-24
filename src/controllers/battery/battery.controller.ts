@@ -9,10 +9,38 @@ export class BatteryController{
 
 public static getBattery = async (req: Request, res: Response) => {
   try {
-    const result = await BatteryService.getBattery(req);
-    res.send(result);
+    const response = await BatteryService.getBattery();
+    res.json(response);
   } catch (error) {
     res.sendStatus(500);
+  }
+}
+public static postBattery = async (req: Request, res: Response) => {
+  try {
+    let data =req.body
+    const response = await BatteryService.postBattery(data);
+    res.json(response);
+  } catch (error:any) {
+    res.json({message:error.message});
+  }
+}
+public static putBattery = async (req: Request, res: Response) => {
+  try {
+    const uid =parseInt(req.params.id, 10)
+    const body =req.body;
+    const response = await BatteryService.putBattery(uid,body);
+    res.json(response);
+  } catch (error:any) {
+    res.json({message:error.message});
+  }
+}
+public static deleteBattery = async (req: Request, res: Response) => {
+  try {
+    const uid =parseInt(req.params.id, 10);
+    const response = await BatteryService.deleteBattery(uid);
+    res.json(response);
+  } catch (error:any) {
+    res.json({message:error.message});
   }
 }
 }
