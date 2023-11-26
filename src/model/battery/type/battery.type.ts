@@ -1,4 +1,4 @@
-export type BatteryInterface = {
+export type BatteryType = {
   dealerName: string;
   batteryType: string;
   batterySerialNumber: number;

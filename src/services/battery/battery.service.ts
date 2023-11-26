@@ -1,6 +1,6 @@
 import { AppDataSource } from '../../config/database/database.config';
 import { BatteryEntity } from '../../model/battery/entity/battery.entity';
-import { BatteryInterface } from '../../model/battery/interface/battery.interface';
+import { BatteryType } from '../../model/battery/type/battery.type';
 export class BatteryService {
   constructor() {}
 
@@ -14,7 +14,7 @@ export class BatteryService {
       }
     });
   };
-  public static postBattery = async (data: BatteryInterface) => {
+  public static postBattery = async (data: BatteryType) => {
     return new Promise<unknown>(async (resolve, reject) => {
       try {
         const { dealerName, batteryType, batterySerialNumber, status, createdDateTime, updatedDateTime } = data;
@@ -34,7 +34,7 @@ export class BatteryService {
       }
     });
   };
-  public static putBattery = async (uid: number, body: BatteryInterface) => {
+  public static putBattery = async (uid: number, body: BatteryType) => {
     return new Promise<unknown>(async (resolve, reject) => {
       try {
         const { dealerName, batteryType, batterySerialNumber, status, createdDateTime, updatedDateTime } = body;
