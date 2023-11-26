@@ -4,7 +4,7 @@ import { BatteryService } from '../../services/battery/battery.service';
 export class BatteryController {
   constructor() {}
 
-  public static getBattery = async (req: Request, res: Response) => {
+  public static getBattery = async (req: Request, res: Response): Promise<void> => {
     try {
       const response = await BatteryService.getBattery();
       res.json(response);
@@ -12,7 +12,7 @@ export class BatteryController {
       res.json({ message: error });
     }
   };
-  public static postBattery = async (req: Request, res: Response) => {
+  public static postBattery = async (req: Request, res: Response): Promise<void> => {
     try {
       const data = req.body;
       const response = await BatteryService.postBattery(data);
@@ -21,7 +21,7 @@ export class BatteryController {
       res.json({ message: error });
     }
   };
-  public static putBattery = async (req: Request, res: Response) => {
+  public static putBattery = async (req: Request, res: Response): Promise<void> => {
     try {
       const uid = parseInt(req.params.id, 10);
       const body = req.body;
@@ -31,7 +31,7 @@ export class BatteryController {
       res.json({ message: error });
     }
   };
-  public static deleteBattery = async (req: Request, res: Response) => {
+  public static deleteBattery = async (req: Request, res: Response): Promise<void> => {
     try {
       const uid = parseInt(req.params.id, 10);
       const response = await BatteryService.deleteBattery(uid);
