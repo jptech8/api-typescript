@@ -7,6 +7,9 @@ import bodyParser from 'body-parser';
 export class App {
   public express: express.Application;
 
+
+  
+
   public constructor() {
     this.express = express();
     this.middlewares();

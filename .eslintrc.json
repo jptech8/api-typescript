@@ -6,12 +6,10 @@
   },
   "plugins": ["@typescript-eslint"],
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
-
   "rules": {
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/consistent-type-definitions": ["warn", "type"]
-},
-
+  },
   "env": {
     "browser": true,
     "es2016": true
